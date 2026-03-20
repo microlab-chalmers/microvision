@@ -4,14 +4,14 @@
 
 <hr>
 <div align="center">
-    <!-- <a href="https://arxiv.org/abs/MY-INDEX"><img src="https://img.shields.io/badge/arXiv-MY.INDEX-b31b1b.svg?logo=arxiv" alt="arXiv:MY-INDEX"></a> -->
+    <a href="https://arxiv.org/abs/2603.18192"><img src="https://img.shields.io/badge/arXiv-2603.18192-b31b1b.svg?logo=arxiv" alt="arXiv:MY-INDEX"></a>
     <a href="https://snd.se/en/catalogue/dataset/2025-74"><img src="https://img.shields.io/badge/SND-2025--74-blue.svg?logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIyLjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMDAuOSA4Ni4zIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMDAuOSA4Ni4zOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qye2ZpbGw6IzY0OUREMjt9Cgkuc3Qze2ZpbGw6I0U0NDYyQzt9Cgkuc3Q0e2ZpbGw6IzFGMzk2Mzt9Cjwvc3R5bGU+CjxnPgoJPHBhdGggY2xhc3M9InN0MiIgZD0iTTM5LjYsMTIuMmw0LjIsOC45YzYuOS0zLjMsMTUuMi0zLjMsMjIuNCwwLjdjMTEuOSw2LjUsMTYuMywyMS41LDkuOCwzMy41QzY5LjUsNjcuMiw1NC41LDcxLjYsNDIuNSw2NQoJCUMzNS41LDYxLjEsMzEsNTQuNCwzMCw0N2wtOS43LDEuNGMxLjUsMTAuMyw3LjcsMTkuOCwxNy42LDI1LjJjMTYuNyw5LjEsMzcuNiwzLDQ2LjgtMTMuN2M5LjEtMTYuNywzLTM3LjctMTMuNy00Ni44CgkJQzYwLjksNy42LDQ5LjMsNy43LDM5LjYsMTIuMnoiLz4KCTxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik00NC4yLDM4LjRsLTI5LjYsNC4zYy0wLjItMS40LTAuMy0yLjgtMC4zLTQuM2MwLTExLjksNi45LTIyLjEsMTctMjdMNDQuMiwzOC40eiIvPgoJPHBhdGggY2xhc3M9InN0NCIgZD0iTTU0LjUsNDMuNWwtNS43LTEyLjFjMy43LTEuNyw4LjEtMS43LDExLjksMC40YzYuNCwzLjUsOC43LDExLjUsNS4yLDE3LjlTNTQuNCw1OC40LDQ4LDU0LjkKCQljLTMuNy0yLTYtNS45LTYuNi05LjgiLz4KPC9nPgo8L3N2Zz4K" alt="SND Dataset"></a>
     <!-- <a href="https://colab.research.google.com/test.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> -->
 </div>
 
 # MicroVision: An Open Dataset and Benchmark Models for Detecting Vulnerable Road Users and Micromobility Vehicles
 
-Welcome to the repository for code related to the MicroVision dataset.
+Welcome to the repository for code related to the MicroVision dataset. More info about the dataset can be obtained from our [preprint](https://arxiv.org/abs/2603.18192).
 
 <!-- <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sdZJUZWMX-Q?si=hoxdzt9gLekago-N" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
@@ -19,7 +19,7 @@ Welcome to the repository for code related to the MicroVision dataset.
 
 ## Dataset
 
-The MicroVision dataset is provided in three files, which can be downloaded at SND [LINK WILL BE UPDATED AS SOON AS AVAILABLE].
+The MicroVision dataset is provided in three files, which can be downloaded at SND: [https://researchdata.se/en/catalogue/dataset/2025-74/1](https://researchdata.se/en/catalogue/dataset/2025-74/1).
 
 - `images.zip`: Contains all images
 - `labels.zip`: Contains all labels in YOLO format (object box coordinates and classes)
@@ -59,7 +59,7 @@ We provide some scripts to work with the data (stored in the `scripts` folder).
 The dataset is not split when downloading. The files can be split using the `split_data.py` tool, as follows:
 
 ```
-uv run scripts\split_data.py \
+python scripts\split_data.py \
   --path_data "test" \ # path to data folder (includes the "images" and "labels" folders)
   --path_meta "test/meta.csv" \ # path to meta.csv file with the split info
   --path_out "test/splits" \ # path to output folder
@@ -72,7 +72,7 @@ uv run scripts\split_data.py \
 This script can be used to convert annotations from the available YOLO11 format to COCO JSON, for example, to train Detectron2 or Roboflow models.
 
 ```
-uv run scripts\yolo2coco.py \
+python scripts\yolo2coco.py \
   --path_yolo "test" \ # path to data folder (contains the "images" and "labels" folders)
   --path_json "test\test.json" path to output JSON file
 ```
@@ -157,34 +157,26 @@ Rahul Rajendra Pai
 <br>
 
 ## License
-
 The dataset and models from this project are licensed under the [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
 
-
 ## Citation
-To be updated
-
-<!-- If you use the dataset or the models in your research, please cite the following paper:
+If you use the dataset or the models in your research, please cite the following paper:
 
 ```bibtex
 @misc{microvision2026,
-  title={MicroVision: An Open Dataset and Benchmark Models for Detecting Vulnerable Road Users and Micromobility Vehicles},
-  author={Rasch, Alexander and Pai, Rahul Rajendra},
-  journal={arXiv preprint arXiv:MY-INDEX},
-  year={2026}
+      title={MicroVision: An Open Dataset and Benchmark Models for Detecting Vulnerable Road Users and Micromobility Vehicles}, 
+      author={Alexander Rasch and Rahul Rajendra Pai},
+      year={2026},
+      eprint={2603.18192},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2603.18192}, 
 }
 ```
--->
 
 ## Acknowledgments
-We would like to thank Shiyi Qiu, Mahin Garg, and Anton Broman, for helping with processing and annotating the data, and [Marco Dozza](https://www.chalmers.se/en/persons/dozza/) for valuable discussions.
+We would like to thank Shiyi Qiu, Mahin Garg, and Anton Broman, for helping with processing and annotating the data, and [Marco Dozza](https://www.chalmers.se/en/persons/dozza/) for valuable discussions and funding acquisition.
 
 The computations were enabled by resources provided by the [National Academic Infrastructure for Supercomputing in Sweden (NAISS)](https://www.naiss.se/), partially funded by the Swedish Research Council through grant agreement no. 2022-06725.
 
 This work was carried out in the project MicroVision, funded by Vinnova (Sweden's innovation agency), the Swedish Energy Agency, and Formas (a Swedish research council for sustainable development), through the DriveSweden program (reference number [2023-01047](https://www.drivesweden.net/en/project/microvision-development-testing-and-demonstration-real-time-support-system-electric-vehicle)).
-
-
-## Contribute
-If you build any models and would like us to include them in the repository, please create a pull request or open an issue. We will review it and merge it if it meets our standards.
-
-If you have any suggestions or ideas, please feel free to reach out to us. We appreciate your help in making this repository better!
